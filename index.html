@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>かんじょうひょうげん</title>
+    <style>
+        .image-box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;  /* 上下の余白を設定 */
+            text-align: left;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;  /* 画像をブロック要素として扱う */
+        }
+    </style>
+</head>
+<body>
+    <h1>いまのきもちをひょうげんしてください</h1>
+
+    <!-- 画像ボックス -->
+    <div class="image-box" id="blue" data-text="うれしいです">
+        <img src="images.jpg" alt="青画像">
+    </div>
+    <div class="image-box" id="red" data-text="楽しいです">
+        <img src="download.jpg" alt="赤画像">
+    </div>
+    <div class="image-box" id="yellow" data-text="悲しいです">
+        <img src="kanasii.jpg" alt="黄色画像">
+    </div>
+  </div>
+  <div class="image-box" id="kana" data-text="悔しいです">
+      <img src="kuya.jpg" alt="黄色画像">
+  </div>
+  <div class="image-box" id="ira" data-text="イライラしています">
+    <img src="ira.png" alt="黄色画像">
+</div>
+
+    <script>
+        // 音声を発声する関数
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ja-JP'; // 日本語設定
+            speechSynthesis.speak(utterance);
+        }
+
+        // 各画像をクリックしたときに音声を発する処理
+        document.getElementById('blue').addEventListener('click', function() {
+            speakText(this.getAttribute('data-text'));
+        });
+        document.getElementById('red').addEventListener('click', function() {
+            speakText(this.getAttribute('data-text'));
+        });
+        document.getElementById('yellow').addEventListener('click', function() {
+            speakText(this.getAttribute('data-text'));
+        });
+        document.getElementById('kana').addEventListener('click', function() {
+            speakText(this.getAttribute('data-text'));
+        });
+        document.getElementById('ira').addEventListener('click', function() {
+            speakText(this.getAttribute('data-text'));
+        });
+    </script>
+</body>
+</html>
